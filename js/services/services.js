@@ -1,6 +1,6 @@
 app.factory("services", function($http) {
 	
-	const API_DIVE = "http://192.168.1.10:8081";
+	const API_DIVE = "http://localhost:8081";
 
 	var _getFichas = function() {
 		return $http({
