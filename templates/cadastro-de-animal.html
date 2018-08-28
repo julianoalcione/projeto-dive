@@ -1,0 +1,61 @@
+<div class="container" ng-init="init()">
+	<h2>
+		<i class="fab fa-linux"></i>
+		Cadastro Animal
+	</h2>
+
+	<div ng-show="msgSucesso" class="alert alert-success">
+		<span>Cadastro realizado com sucesso!</span>
+	</div>
+	
+	<form ng-submit="salvar(animal)">
+		<label> Nome :</label>
+		<input 
+			id="cadastrar-animal"
+			type="text" 
+			ng-model="animal.nome" 
+			class="1 form-control" 
+			placeholder="Digite o nome do animal" 
+			required />
+		
+		<br>
+		<br>
+		
+		<button class="btn btn-primary">
+			Salvar
+			<i class="fas fa-save"></i>
+		</button>
+	</form>
+
+
+	<div class="tabela-principal">
+		<table class="table table-striped">
+			<thead>
+		    	<tr>
+		      		<th scope="col">Id</th>
+		      		<th scope="col">Nome</th>
+		      		<th scope="col">Editar</th>
+		      		<th scope="col">Deletar</th>
+		    	</tr>
+		  	</thead>
+		  
+		  	<tbody>
+		    	<tr ng-repeat="animal in animais">
+		    		<th scope="row">{{animal.id}}</th>
+		      		<td>{{animal.nome}}</td>
+		      		<td>
+		      			<a href="javascript:void()" ng-click="editar(animal)" class="btn btn-edit">
+		      				<i class="fas fa-pen"></i>
+		      				Editar
+		      			</a>
+		      		</td>
+		      		<td>
+		      			<button ng-click="removerAnimal(animal)" class="btn btn-danger">
+		      				<i class="fas fa-times"></i>
+		      			</button>
+		      		</td>
+		    	</tr>
+		  	</tbody>
+		</table>
+	</div>
+</div>
